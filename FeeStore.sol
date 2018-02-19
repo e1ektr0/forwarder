@@ -28,10 +28,10 @@ contract FeeStore is owned{
     uint public multiplier = 1;
     uint public divider = 1;
 
-    function FeeStore() public onlyOwner{
+    function FeeStore() public {
     }
     
-    function SetFee(uint _multiplier, uint _divider)  public {
+    function SetFee(uint _multiplier, uint _divider)  public onlyOwner{
         divider = _divider;
         multiplier = _multiplier;
     }
