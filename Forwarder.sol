@@ -26,7 +26,7 @@ contract Forwarder {
   */
   function() payable public {
         FeeStore store = FeeStore(feeStoreAddress);
-        uint fee = msg.value/store.divider();
+        uint fee = msg.value*store.multiplier()/store.divider();
         destinationAddress.transfer(msg.value-fee);
         destinationFeeAddress.transfer(fee);
   }
